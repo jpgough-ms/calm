@@ -27,8 +27,8 @@
         "uniqueId": {
           "type": "string"
         },
-        "type": {
-          "$ref": "#/defs/node-type"
+        "node-type-definition": {
+          "$ref": "#/defs/node-type-definition"
         },
         "name": {
           "type": "string"
@@ -48,7 +48,7 @@
       },
       "required": [
         "uniqueId",
-        "type",
+        "node-type",
         "name",
         "description"
       ],
@@ -60,8 +60,8 @@
         "uniqueId": {
           "type": "string"
         },
-        "type": {
-          "$ref": "#/defs/relationship-type"
+        "relationship-type-definition": {
+          "$ref": "#/defs/relationship-type-definition"
         },
         "parties": {
           "type": "object",
@@ -131,7 +131,7 @@
         "SPNEGO"
       ]
     },
-    "node-type": {
+    "node-type-definition": {
       "enum": [
         "actor",
         "system",
@@ -142,7 +142,7 @@
         "webclient"
       ]
     },
-    "relationship-type": {
+    "relationship-type-definition": {
       "enum": [
         "interacts",
         "connects",
