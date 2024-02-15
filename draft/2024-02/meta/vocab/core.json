@@ -6,95 +6,148 @@
     "nodes": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/node"
+        "$ref": "#/defs/node"
       }
     },
     "relationships": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/relationship"
+        "$ref": "#/defs/relationship"
       }
     },
     "required": [
       "nodes",
       "relationships"
-    ],
-    "defs": {
-      "node": {
-        "type": "object",
-        "properties": {
-          "uniqueId": {
-            "type": "string"
-          },
-          "type": {
-            "$ref": "#/definitions/node-type"
-          },
-          "name": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "data-classification": {
-            "$ref": "#/definitions/dataClassification"
-          },
-          "run-as": {
-            "type": "string"
-          },
-          "instance": {
-            "type": "string"
-          }
+    ]
+  },
+  "defs": {
+    "node": {
+      "type": "object",
+      "properties": {
+        "uniqueId": {
+          "type": "string"
         },
-        "required": [
-          "uniqueId",
-          "type",
-          "name",
-          "description"
-        ],
-        "additionalProperties": false
+        "type": {
+          "$ref": "#/defs/node-type"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "data-classification": {
+          "$ref": "#/defs/dataClassification"
+        },
+        "run-as": {
+          "type": "string"
+        },
+        "instance": {
+          "type": "string"
+        }
       },
-      "dataClassification": {
-        "enum": [
-          "Public",
-          "Confidential",
-          "Highly Restricted",
-          "MNPI",
-          "PII"
-        ]
+      "required": [
+        "uniqueId",
+        "type",
+        "name",
+        "description"
+      ],
+      "additionalProperties": false
+    },
+    "relationship": {
+      "type": "object",
+      "properties": {
+        "uniqueId": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/defs/relationship-type"
+        },
+        "parties": {
+          "type": "object",
+          "properties": {
+            "actor": {
+              "type": "string"
+            },
+            "nodes": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "source": {
+              "type": "string"
+            },
+            "destination": {
+              "type": "string"
+            },
+            "container": {
+              "type": "string"
+            }
+          },
+          "required": []
+        },
+        "protocol": {
+          "$ref": "#/defs/protocol"
+        },
+        "authentication": {
+          "$ref": "#/defs/authentication"
+        }
       },
-      "protocol": {
-        "enum": [
-          "HTTP",
-          "HTTPS",
-          "FTP",
-          "SFTP",
-          "JDBC",
-          "WebSocket",
-          "SocketIO",
-          "LDAP",
-          "AMQP"
-        ]
-      },
-      "authentication": {
-        "enum": [
-          "Basic",
-          "OAuth2",
-          "Kerberos",
-          "SPNEGO",
-          "SiteMinder/Isolated"
-        ]
-      },
-      "node-type": {
-        "enum": [
-          "actor",
-          "system",
-          "service",
-          "database",
-          "internal-network",
-          "ldap",
-          "webclient"
-        ]
-      }
+      "required": [
+        "uniqueId",
+        "type",
+        "parties"
+      ]
+    },
+    "dataClassification": {
+      "enum": [
+        "Public",
+        "Confidential",
+        "Highly Restricted",
+        "MNPI",
+        "PII"
+      ]
+    },
+    "protocol": {
+      "enum": [
+        "HTTP",
+        "HTTPS",
+        "FTP",
+        "SFTP",
+        "JDBC",
+        "WebSocket",
+        "SocketIO",
+        "LDAP",
+        "AMQP"
+      ]
+    },
+    "authentication": {
+      "enum": [
+        "Basic",
+        "OAuth2",
+        "Kerberos",
+        "SPNEGO"
+      ]
+    },
+    "node-type": {
+      "enum": [
+        "actor",
+        "system",
+        "service",
+        "database",
+        "internal-network",
+        "ldap",
+        "webclient"
+      ]
+    },
+    "relationship-type": {
+      "enum": [
+        "interacts",
+        "connects",
+        "deployed-in",
+        "composed-of"
+      ]
     }
   }
 }
