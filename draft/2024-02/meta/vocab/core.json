@@ -27,7 +27,7 @@
         "uniqueId": {
           "type": "string"
         },
-        "node-type-definition": {
+        "node-type": {
           "$ref": "#/defs/node-type-definition"
         },
         "name": {
@@ -60,7 +60,7 @@
         "uniqueId": {
           "type": "string"
         },
-        "relationship-type-definition": {
+        "relationship-type": {
           "$ref": "#/defs/relationship-type-definition"
         },
         "parties": {
