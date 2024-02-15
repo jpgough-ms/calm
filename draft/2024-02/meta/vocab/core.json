@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://calm-api.com/draft/2024-02/meta/vocab/core",
+  "title": "Common Architecture Language Model (CALM) Vocab",
+  "properties": {
+    "nodes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/node"
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/relationship"
+      }
+    },
+    "required": [
+      "nodes",
+      "relationships"
+    ],
+    "defs": {
+      "node": {
+        "type": "object",
+        "properties": {
+          "uniqueId": {
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/definitions/node-type"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "data-classification": {
+            "$ref": "#/definitions/dataClassification"
+          },
+          "run-as": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "uniqueId",
+          "type",
+          "name",
+          "description"
+        ],
+        "additionalProperties": false
+      },
+      "dataClassification": {
+        "enum": [
+          "Public",
+          "Confidential",
+          "Highly Restricted",
+          "MNPI",
+          "PII"
+        ]
+      },
+      "protocol": {
+        "enum": [
+          "HTTP",
+          "HTTPS",
+          "FTP",
+          "SFTP",
+          "JDBC",
+          "WebSocket",
+          "SocketIO",
+          "LDAP",
+          "AMQP"
+        ]
+      },
+      "authentication": {
+        "enum": [
+          "Basic",
+          "OAuth2",
+          "Kerberos",
+          "SPNEGO",
+          "SiteMinder/Isolated"
+        ]
+      },
+      "node-type": {
+        "enum": [
+          "actor",
+          "system",
+          "service",
+          "database",
+          "internal-network",
+          "ldap",
+          "webclient"
+        ]
+      }
+    }
+  }
+}
