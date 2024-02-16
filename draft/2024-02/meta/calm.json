@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://calm-api.com/draft/2024-02/meta/calm.json",
+  "$id": "https://calm-api.com/draft/2024-02/meta/calm",
 
   "$vocabulary": {
     "https://json-schema.org/draft/2020-12/vocab/core": true,
@@ -16,6 +16,6 @@
   "title": "Common Architecture Language Model (CALM) Schema",
   "allOf": [
     {"$ref": "https://json-schema.org/draft/2020-12/schema"},
-    {"$ref": "https://calm-api.com/draft/2024-02/vocab/core.json"}
+    {"$ref": "https://calm-api.com/draft/2024-02/vocab/core"}
   ]
 }

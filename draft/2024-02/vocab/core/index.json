@@ -4,17 +4,15 @@
   "title": "Common Architecture Language Model (CALM) Vocab",
   "properties": {
     "nodes": {
-      "$dynamicAnchor": "nodes",
       "type": "array",
       "items": {
-        "$dynamicRef": "#node"
+        "$ref": "#/defs/node"
       }
     },
     "relationships": {
-      "$dynamicAnchor": "relationships",
       "type": "array",
       "items": {
-        "$dynamicRef": "#relationship"
+        "$ref": "#/defs/relationship"
       }
     },
     "required": [
@@ -24,14 +22,13 @@
   },
   "defs": {
     "node": {
-      "$dynamicAnchor": "node",
       "type": "object",
       "properties": {
         "uniqueId": {
           "type": "string"
         },
         "node-type": {
-          "$dynamicRef": "#node-type-definition"
+          "$ref": "#/defs/node-type-definition"
         },
         "name": {
           "type": "string"
@@ -40,7 +37,7 @@
           "type": "string"
         },
         "data-classification": {
-          "$dynamicRef": "#dataClassification"
+          "$ref": "#/defs/dataClassification"
         },
         "run-as": {
           "type": "string"
@@ -58,14 +55,13 @@
       "additionalProperties": true
     },
     "relationship": {
-      "$dynamicAnchor": "relationship",
       "type": "object",
       "properties": {
         "uniqueId": {
           "type": "string"
         },
         "relationship-type": {
-          "$dynamicRef": "#/defs/relationship-type-definition"
+          "$ref": "#/defs/relationship-type-definition"
         },
         "parties": {
           "type": "object",
@@ -92,10 +88,10 @@
           "required": []
         },
         "protocol": {
-          "$dynamicRef": "#protocol"
+          "$ref": "#/defs/protocol"
         },
         "authentication": {
-          "$ref": "#authentication"
+          "$ref": "#/defs/authentication"
         }
       },
       "required": [
@@ -106,7 +102,6 @@
       "additionalProperties": true
     },
     "dataClassification": {
-      "$dynamicAnchor": "dataClassification",
       "enum": [
         "Public",
         "Confidential",
@@ -116,7 +111,6 @@
       ]
     },
     "protocol": {
-      "$dynamicAnchor": "protocol",
       "enum": [
         "HTTP",
         "HTTPS",
@@ -130,7 +124,6 @@
       ]
     },
     "authentication": {
-      "$dynamicAnchor": "authentication",
       "enum": [
         "Basic",
         "OAuth2",
@@ -139,7 +132,6 @@
       ]
     },
     "node-type-definition": {
-      "$dynamicAnchor": "node-type-definition",
       "enum": [
         "actor",
         "system",
@@ -151,7 +143,6 @@
       ]
     },
     "relationship-type-definition": {
-      "$dynamicAnchor": "relationship-type-definition",
       "enum": [
         "interacts",
         "connects",
