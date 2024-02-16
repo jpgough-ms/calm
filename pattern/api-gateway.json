@@ -1,0 +1,86 @@
+{
+  "$schema": "https://calm-api.com/draft/2024-02/meta/calm.json",
+  "$id": "https://calm-api.com/pattern/api-gateway",
+  "title": "API Gateway",
+  "type": "object",
+  "nodes": [
+    {
+      "uniqueId": "api-gateway",
+      "node-type": "system",
+      "name": "API Gateway",
+      "description": "The API Gateway used to verify authorization and access to downstream system",
+      "ingress-host": {
+        "type": "string"
+      },
+      "ingress-port": {
+        "type": "integer"
+      },
+      "well-known-endpoint": {
+        "type": "string"
+      },
+      "required": [
+        "ingress-host",
+        "ingress-port",
+        "well-known-endpoint"
+      ]
+    },
+    {
+      "description": "The API Consumer making an authenticated and authorized request",
+      "node-type": "system",
+      "name": "Python Based API Consumer",
+      "uniqueId": "api-consumer"
+    },
+    {
+      "uniqueId": "api-producer",
+      "node-type": "system",
+      "name": "Java Based API Producer",
+      "description": "The API Producer serving content",
+      "host": {
+        "type": "string"
+      },
+      "port": {
+        "type": "integer"
+      },
+      "required": [
+        "host",
+        "port"
+      ]
+    },
+    {
+      "uniqueId": "idp",
+      "name": "Identity Provider",
+      "description": "The Identity Provider used to verify the bearer token",
+      "node-type": "system"
+    }
+  ],
+  "relationships": [
+    {
+      "uniqueId": "api-consumer-api-gateway",
+      "authentication": "OAuth2",
+      "protocol": "HTTPS",
+      "parties": {
+        "source": "api-consumer",
+        "destination": "api-gateway"
+      },
+      "relationship-type": "connects"
+    },
+    {
+      "uniqueId": "api-gateway-idp",
+      "protocol": "HTTPS",
+      "relationship-type": "connects",
+      "parties": {
+        "source": "api-gateway",
+        "destination": "idp"
+      }
+    },
+    {
+      "uniqueId": "api-gateway-api-producer",
+      "protocol": "HTTPS",
+      "relationship-type": "connects",
+      "parties": {
+        "source": "api-gateway",
+        "destination": "api-producer"
+      }
+    }
+  ]
+}
