@@ -96,7 +96,7 @@
       },
       "required": [
         "uniqueId",
-        "type",
+        "relationship-type",
         "parties"
       ],
       "additionalProperties": true
