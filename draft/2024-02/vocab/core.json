@@ -120,7 +120,8 @@
         "WebSocket",
         "SocketIO",
         "LDAP",
-        "AMQP"
+        "AMQP",
+        "MTLS"
       ]
     },
     "authentication": {
