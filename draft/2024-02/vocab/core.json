@@ -121,7 +121,7 @@
         "SocketIO",
         "LDAP",
         "AMQP",
-        "MTLS"
+        "mTLS"
       ]
     },
     "authentication": {
