@@ -9,7 +9,7 @@
     "https://json-schema.org/draft/2020-12/vocab/meta-data": true,
     "https://json-schema.org/draft/2020-12/vocab/format-annotation": true,
     "https://json-schema.org/draft/2020-12/vocab/content": true,
-    "https://calm-api.com/draft/2024-02/vocab/core": true
+    "https://raw.githubusercontent.com/jpgough-ms/calm/main/draft/2024-02/vocab/core.json": true
   },
   "$dynamicAnchor": "meta",
 
