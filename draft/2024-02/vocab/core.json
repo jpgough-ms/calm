@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://calm-api.com/draft/2024-02/vocab/core",
+  "$id": "https://raw.githubusercontent.com/jpgough-ms/calm/main/draft/2024-02/vocab/core.json",
   "title": "Common Architecture Language Model (CALM) Vocab",
   "properties": {
     "nodes": {
