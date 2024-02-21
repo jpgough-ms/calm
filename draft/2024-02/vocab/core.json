@@ -127,6 +127,7 @@
     "authentication": {
       "enum": [
         "Basic",
+        "Certificate",
         "OAuth2",
         "Kerberos",
         "SPNEGO"
